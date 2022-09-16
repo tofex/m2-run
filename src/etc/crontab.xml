@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!--
+ * @author      Andreas Knollmann
+ * @copyright   Copyright (c) 2014-2022 Tofex UG (http://www.tofex.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="check_tasks" instance="Tofex\Task\Cron\Check" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+    </group>
+</config>

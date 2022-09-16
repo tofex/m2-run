@@ -1,0 +1,20 @@
+<?php
+/**
+ * @author      Andreas Knollmann
+ * @copyright   Copyright (c) 2014-2022 Tofex UG (http://www.tofex.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ */
+use Psr\Log\LogLevel;
+use Tofex\Task\Logger\Record;
+/* @var Magento\Backend\Block\Template $block */
+/** @var Record[] $result */
+$result = $block->getData('result');
+?>
+
+<h2><?php echo $block->escapeHtml($block->getData('title')); ?></h2>
+<div style="font-family: 'courier new', monospace;">
+    <?php foreach ($result as $event): ?>
+        <?php $code = strcasecmp($event->getLevel(), LogLevel::EMERGENCY) === 0 || strcasecmp($event->getLevel(), LogLevel::ALERT) === 0 || strcasecmp($event->getLevel(), LogLevel::CRITICAL) === 0 || strcasecmp($event->getLevel(), LogLevel::ERROR) === 0 ? '800' : (strcasecmp($event->getLevel(), LogLevel::WARNING) === 0 ? '880' : '060'); ?>
+        <div style="color: #<?php echo $code; ?>;"><?php echo $block->escapeHtml(trim($event->getMessage())); ?></div>
+    <?php endforeach; ?>
+</div>

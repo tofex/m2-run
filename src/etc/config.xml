@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<!--
+ * @author      Andreas Knollmann
+ * @copyright   Copyright (c) 2014-2022 Tofex UG (http://www.tofex.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <task_general>
+            <settings>
+                <wait_for_predecessor>0</wait_for_predecessor>
+            </settings>
+            <logging>
+                <log_level>info</log_level>
+                <log_warn_as_error>0</log_warn_as_error>
+            </logging>
+        </task_general>
+    </default>
+</config>

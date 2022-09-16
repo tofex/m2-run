@@ -1,0 +1,39 @@
+<?php /** @noinspection PhpDeprecationInspection */
+
+/**
+ * @author      Andreas Knollmann
+ * @copyright   Copyright (c) 2014-2022 Tofex UG (http://www.tofex.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ */
+use Tofex\Task\Block\Adminhtml\Run\View;
+/** @var View $block */
+$content = $block->getContent();
+$errorContent = $block->getErrorContent();
+?>
+
+<div class="page-main-actions">
+    <div class="page-actions">
+        <div class="page-actions-buttons">
+            <?= $block->getBackButtonHtml(); ?>
+        </div>
+    </div>
+</div>
+
+<h2><?php echo $block->escapeHtml($block->getData('title')); ?></h2>
+
+<h3><?php echo $block->escapeHtml($block->getLogFileName()); ?></h3>
+<div style="font-family: 'courier new', monospace;">
+    <?php foreach ($content as $line): ?>
+        <div><?php echo $block->escapeHtml(trim($line)); ?></div>
+    <?php endforeach; ?>
+</div>
+
+<?php if (! empty($errorContent)): ?>
+    <h3 style="margin-top: 2rem;"><?php echo $block->escapeHtml($block->getErrorFileName()); ?></h3>
+    <div style="font-family: 'courier new', monospace;">
+        <?php foreach ($errorContent as $line): ?>
+            <div><?php echo $block->escapeHtml(trim($line)); ?></div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
+

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<!--
+ * @author      Andreas Knollmann
+ * @copyright   Copyright (c) 2014-2022 Tofex UG (http://www.tofex.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="task_result_template" label="Task Result" file="task_result_template.html" type="text" module="Tofex_Task" area="adminhtml"/>
+</config>

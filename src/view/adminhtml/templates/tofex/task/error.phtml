@@ -1,0 +1,13 @@
+<?php
+/**
+ * @author      Andreas Knollmann
+ * @copyright   Copyright (c) 2014-2022 Tofex UG (http://www.tofex.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ */
+use Magento\Backend\Block\Template;
+/** @var Template $block */
+?>
+<h2><?php echo $this->escapeHtml(__('Error Executing Task')); ?></h2>
+<div style="font-family: 'courier new', monospace;">
+    <?php echo nl2br($this->escapeHtml(trim($block->getData('reason')))); ?>
+</div>

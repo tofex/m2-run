@@ -1,0 +1,31 @@
+/**
+ * @author      Andreas Knollmann
+ * @copyright   Copyright (c) 2014-2022 Tofex UG (http://www.tofex.de)
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ */
+
+.task-run-status-running, .task-run-status-finished, .task-run-status-broken {
+  display: block;
+  padding: 0 3px;
+  color: #000;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: bold;
+  line-height: 17px;
+}
+
+.task-run-status-running {
+  background: #ffa none repeat scroll 0 0;
+  border: 1px solid #bb0;
+}
+
+.task-run-status-finished {
+  background: #afa none repeat scroll 0 0;
+  border: 1px solid #0b0;
+}
+
+.task-run-status-broken {
+  background: #faa none repeat scroll 0 0;
+  border: 1px solid #b00;
+}
