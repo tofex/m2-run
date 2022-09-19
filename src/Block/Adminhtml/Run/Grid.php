@@ -12,6 +12,7 @@ use Magento\Framework\Data\Collection\AbstractDb;
 use Magento\Framework\Exception\FileSystemException;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 use Magento\Framework\Validator\UniversalFactory;
+use Tofex\BackendWidget\Helper\Session;
 use Tofex\Core\Helper\Database;
 use Tofex\Core\Helper\Registry;
 use Tofex\Help\Arrays;
@@ -38,6 +39,7 @@ class Grid
      * @param Variables                        $variableHelper
      * @param Registry                         $registryHelper
      * @param \Tofex\BackendWidget\Helper\Grid $gridHelper
+     * @param Session                          $sessionHelper
      * @param UniversalFactory                 $universalFactory
      * @param Config                           $eavConfig
      * @param TaskName                         $taskName
@@ -51,13 +53,14 @@ class Grid
         Variables $variableHelper,
         Registry $registryHelper,
         \Tofex\BackendWidget\Helper\Grid $gridHelper,
+        Session $sessionHelper,
         UniversalFactory $universalFactory,
         Config $eavConfig,
         TaskName $taskName,
         array $data = [])
     {
         parent::__construct($context, $backendHelper, $databaseHelper, $arrayHelper, $variableHelper, $registryHelper,
-            $gridHelper, $universalFactory, $eavConfig, $data);
+            $gridHelper, $sessionHelper, $universalFactory, $eavConfig, $data);
 
         $this->taskName = $taskName;
     }
@@ -109,6 +112,14 @@ class Grid
         $this->addDatetimeColumn('finish_at', __('Finish Date'));
         $this->addNumberColumnWithFilterCondition('duration', __('Duration'), [$this, 'filterDuration']);
         $this->addNumberColumn('max_memory_usage', __('Memory'));
+    }
+
+    /**
+     * @return string[]
+     */
+    protected function getHiddenFieldNames(): array
+    {
+        return ['process_id', 'empty_run', 'test', 'finish_at', 'duration', 'max_memory_usage'];
     }
 
     /**
