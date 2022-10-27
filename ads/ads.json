@@ -10,12 +10,12 @@
         "systemName": "m2_task",
         "webServerType": "apache_php",
         "webServerVersion": "2.4",
-        "phpVersion": "7.4",
+        "phpVersion": "8.1",
         "databaseType": "mysql",
         "databaseVersion": "5.7",
         "elasticsearchVersion": "7.9",
         "mailCatcherVersion": "0.6",
-        "magentoVersion": "2.4.3",
+        "magentoVersion": "2.4.5",
         "magentoEdition": "community"
     },
     "ws": {

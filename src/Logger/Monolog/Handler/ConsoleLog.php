@@ -125,7 +125,7 @@ class ConsoleLog
      *
      * @return void
      */
-    protected function write(array $record)
+    protected function write(array $record): void
     {
         if (array_key_exists('formatted', $record)) {
             $this->output->write((string)$record[ 'formatted' ]);

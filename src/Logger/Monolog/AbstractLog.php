@@ -2,6 +2,7 @@
 
 namespace Tofex\Task\Logger\Monolog;
 
+use Monolog\DateTimeImmutable;
 use Monolog\Handler\AbstractHandler;
 use Monolog\Logger;
 use Tofex\Core\Helper\Instances;
@@ -69,13 +70,18 @@ abstract class AbstractLog
     abstract protected function getHandlerClass(): string;
 
     /**
-     * @param integer $level   The logging level
-     * @param string  $message The log message
-     * @param array   $context The log context
+     * @param integer                $level    The logging level
+     * @param string                 $message  The log message
+     * @param array                  $context  The log context
+     * @param DateTimeImmutable|null $datetime Optional log date to log into the past or future
      *
      * @return Boolean Whether the record has been processed
      */
-    public function addRecord($level, $message, array $context = []): bool
+    public function addRecord(
+        int $level,
+        string $message,
+        array $context = [],
+        DateTimeImmutable $datetime = null): bool
     {
         $this->prepareTaskHandler();
 
