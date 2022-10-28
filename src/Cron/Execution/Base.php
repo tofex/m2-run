@@ -107,7 +107,7 @@ abstract class Base
      */
     public function save(): Base
     {
-        $path = sprintf('crontab/default/tasks/task_%s/schedule/cron_expr', $this->getTaskName());
+        $path = sprintf('crontab/default/jobs/task_%s/schedule/cron_expr', $this->getTaskName());
 
         /** @var Value $config */
         $config = $this->configValueFactory->create();
