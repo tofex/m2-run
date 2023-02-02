@@ -88,7 +88,7 @@ abstract class Base
         if ($this->task === null) {
             $this->task = $this->instanceHelper->getInstance($this->getClassName());
 
-            if ( ! ($this->task instanceof Base)) {
+            if ( ! ($this->task instanceof \Tofex\Task\Task\Base)) {
                 throw new Exception(sprintf('Task must extend %s', Base::class));
             }
         }
